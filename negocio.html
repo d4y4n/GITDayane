@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Negocio DG</title>
+    <link rel="stylesheet" href="estilonegocio.css">
+    <link rel="stylesheet" href="jquery.fancybox.min.css">
+    <link href= 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css' rel='stylesheet'> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script tipe="text/javascript" src="jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
+    
+    
+
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+            });
+            
+            $('.fancybox-media').fancybox({
+                openEffect  : 'none',
+                closeEffect : 'none',
+                helpers : {
+                    media : {}
+                }
+            });
+
+           // =======================
+
+           
+
+			
+
+
+		});
+	</script>
+	<style type="text/css">
+		.fancybox-custom .fancybox-skin {
+			box-shadow: 0 0 50px #222;
+		}
+
+		body {
+			max-width: 700px;
+			margin: 0 auto;
+		}
+	</style>
+	
+    <script>
+        $(document).ready(function(){
+            $("#mostrar").on( "click", function() {
+                $('#quienes-somos-ocultar').show();
+                $('#donde-estamos-ocultar').show();
+                $('#servicios-ocultar').show();
+                $('#referencias-ocultar').show();
+            });
+            $("#quienes-somos").on( "click", function() {
+                $('#quienes-somos-ocultar').hide();
+            });
+            $("#donde-estamos").on( "click", function() {
+                $('#donde-estamos-ocultar').hide();
+            });
+            $("#servicios").on( "click", function() {
+                $('#servicios-ocultar').hide();
+            });
+            $("#referencias").on( "click", function() {
+                $('#referencias-ocultar').hide();
+            });
+        });
+    </script>
+
+<script>
+    $( function() {
+      $( "#menu" ).menu();
+    } );
+    </script>
+    <style>
+    .ui-menu { width: 150px; }
+    </style> 
+
+   
+</head>
+<body>
+    <header>
+        <a href="/">
+            <img src="https://nebula.wsimg.com/a980a5dd3ffb0c7ed107fd2d1d1eaa31?AccessKeyId=D90C5C6C41EA845BB39D&disposition=0&alloworigin=1" alt="Celulares">
+        </a>
+        <nav>
+            <a href="#quienes-somos">Quienes Somos</a>
+            <a href="#donde-estamos">Donde Estamos</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#referencias">Referencias</a>
+            <a href="ingreso.html">Ingreso</a>
+            <a href="agregarcliente.html">Agregar Cliente</a>
+            <a href="agregarventa.html">Agregar Venta</a>
+            <a href="listarventas.html">Agregar Venta</a>
+        </nav>
+    </header>
+
+    <ul id="menu">
+        <li><div>Inicio</div>
+            <ul>
+                <li><div><a href="ingreso.html">Ingreso</a></div></li>
+                <li><div><a href="negocio.html">Inicio</a></div></li>
+            </ul>
+        </li>
+        <li><div>Clientes</div>
+            <ul>
+                <li><div><a href="agregarcliente.html">Agregar Cliente</a></div></li>
+            </ul>
+        </li>
+        <li><div>Ventas</div>
+            <ul>
+                <li><div><a href="agregarventa.html">Agregar Venta</a></div></li>
+                <li><div><a href="agregardetalleventa.html">Agregar Detalle Venta</a></div></li>
+                <li><div><a href="listarventas.html">Listar Venta</a></div></li>
+                <li><div><a href="crearfactura.html">Crear Factura</a></div></li>
+            </ul>
+        </li>
+        <li><div>Productos</div>
+            <ul>
+                <li><div><a href="crearproducto.html">Crear Producto</a></div></li>
+                <li><div><a href="listadocategorias.html">Listado Categorias</a></div></li>
+            </ul>
+        </li> 
+      </ul>
+
+    <section id="quienes-somos">
+
+        <div id="quienes-somos-ocultar">
+            
+            <h1>Quienes Somos</h1>
+            <hr>
+
+            <img src="https://blogs.vmware.com/latam/files/2018/03/Celulares.jpg" alt="Quienes Somos">
+        
+            <p>Negocio DG es una tienda online dedicada a la venta de Celulares, Servicio Tecnico y Accesorios.</p>
+            
+            <p>Nuestro emprendimiento fue creado y dirigida por Dayana González a 
+            partir de este año 2020, hemos volcado nuestras energías en proveer 
+            los mejores productos a nuestros clientes, brindar una atención de calidad, 
+            cumplir con rapidez, eficacia y mucho amor en la atención con cada uno de ustedes.</p>
+            
+            <p>Negocio DG espera seguir construyendo lasos, prestando la mejor atención con productos profesionales de calidad.</p>
+        
+        </div>
+    
+    </section>
+
+    <br>
+    <br>
+
+    <p class="imglist">
+        <a href="https://4.bp.blogspot.com/-RIgXntuAPTw/XHyzm3kBO-I/AAAAAAAAAMA/FUWvUZAzstI2WEZFbuBjLrYj59wF3seEQCEwYBhgL/w1200-h630-p-k-no-nu/accesorios%2B1.png" data-fancybox data-caption="&lt;b&gt;Single photo&lt;/b&gt;&lt;br /&gt;Caption can contain &lt;em&gt;any&lt;/em&gt; HTML elements">
+          <img src="https://4.bp.blogspot.com/-RIgXntuAPTw/XHyzm3kBO-I/AAAAAAAAAMA/FUWvUZAzstI2WEZFbuBjLrYj59wF3seEQCEwYBhgL/w1200-h630-p-k-no-nu/accesorios%2B1.png" width="300" height="200" />
+        </a>
+      </p>
+    
+      <br>
+      <br>
+
+    <section id="donde-estamos">
+
+        <div id="donde-estamos-ocultar">
+            
+            <h1>Donde Estamos</h1>
+            <hr>
+
+            <img src="https://sites.google.com/site/accesoriosparacelularesptoasis/_/rsrc/1534575925459/mym-tienda-movil-puerto-asis/punto%20de%20venta.jpg" alt="Imagen Local">
+            
+            <p>Nuestra Sucursal</p>
+
+            <ul>
+                <li>Dirección: Mi Calle #451, Santiago</li>
+                <li>Telefono: +56 9 8888 9999</li>
+                <li>Email: contacto@negociodg.cl</li>
+            </ul>
+
+        </div>
+    
+    </section>
+    <br>
+    <br>
+    
+    <div class="card-deck mb-sm-4 video-deck">
+
+        <div class="card">
+            <a data-fancybox href="https://youtu.be/9Kr6C-FTkrs" class="boton_personalizado">Abrir VIDEO
+                
+            </a>
+            <div class="card-body">
+                <p class="card-text">
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <section id="servicios">
+
+        <div id="servicios-ocultar">
+
+            <h1>Nuestros Servicios</h1>
+            <hr>      
+            
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOjfgubYy7ipEb7oXC-NfkPSXHHO7iFnu9meRTKl0gedo73cEQxauHlyukWQD0y8HsIcWNcFf2&usqp=CAc" alt="Imagen Venta">
+            
+            <h3>Venta de Celulares</h3>
+            
+            <p>Tenemos todos los modelos de la linea Galaxy disponibles, no te quedes sin el tuyo</p>
+
+            <br>
+
+            <img src="https://2.bp.blogspot.com/-4UMFoptQaKQ/V5ZDk0AIdDI/AAAAAAAACQc/1I-jIgWb4cIQXibjTd5f_Mu15TrOrk0fgCLcB/s640/reparacion-de-celulares-full%2Baprendizaje.jpg" alt="Imagen Tecnico">
+            
+            <h3>Reparación de Celulares</h3>
+            
+            <p>Tenemos un personal calificado tecnicamente paras la reparación de cualquier modelo de celular</p>
+
+            <br>
+            
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ0DHo61Jg1M1Jtdxzaz0SoOIC6pGGq0gL0BbTKeIWvuXpk5uEEeVv6nv1V08_5JPIvNUfNypF7HE&usqp=CAc" alt="Imagen Accesorio">
+            
+            <h3>Accesorios de Celulares</h3>
+            
+            <p>Tenemos una amplia gama de accesorios para todos los modelos del mercado, no te quedes sin el tuyo</p>
+
+        </div>
+        
+    </section>
+    
+
+    
+        
+   
+   
+
+      <br>
+      <br>
+      
+
+      <div class="card-deck mb-sm-4">
+    
+    
+        <!--  #2 -->
+    
+        <div class="card p-lg-3">
+            <div class="card-body">
+                <p class="card-text">
+                    Display Google map
+                </p>
+                <p class="mb-0">
+                    <a data-fancybox data-options='{"iframe" : {"css" : {"width" : "80%", "height" : "80%"}}}' href="https://www.google.com/maps/search/?api=1&query=centurylink+field" class="boton_personalizado">VER MAPA</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+     
+
+
+
+      <br>
+      <br>
+
+
+    <section id="referencias">
+
+        <div id="referencias-ocultar">
+
+            <h1>Referencias</h1>
+            <hr>
+
+            <p>Samsung Web Site Oficial:</p>
+
+            <blockquote cite="https://www.samsung.com/cl/">
+            
+                <p>Toda la información que necesitas
+                    <a href="https://www.samsung.com/cl/">SAMSUNG</a>
+                </p>
+                <footer>- Samsung.com"</footer>
+            </blockquote>
+
+            <hr>      
+            
+            <p>Huawei Web Site Oficial:</p>
+            
+            <blockquote cite="https://huawei.com/">
+                <p>Todos los productos a tu alcance
+                    <a href="https://huawei.com/">HUAWEI</a>
+                </p>
+                <footer>- Huawei.com"</footer>
+            </blockquote>
+
+            <hr>      
+            
+            <p>Xiaomi Web Site Oficial:</p>
+            
+            <blockquote cite="https://xiaomi.com/">
+                <p>Todos los productos a tu alcance
+                    <a href="https://xiaomi.com/">XIAOMI</a>
+                </p>
+                <footer>- Xiaomi.com"</footer>
+            </blockquote>
+
+        </div>
+        
+    </section>
+
+    <input type="button" id="mostrar" name="boton1" value="Click para mostrar elementos">
+
+    <hr>
+    <footer>
+        <nav>
+            <a href="#quienes-somos">Quienes Somos</a>
+            <a href="#donde-estamos">Donde Estamos</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#referencias">Referencias</a>
+            <a href="ingreso.html">Ingreso</a>
+            <a href="agregarcliente.html">Agregar Cliente</a>
+        </nav>
+        <p class="copyright">Todos los derechos reservados 2020 TIENDA DG &copy;</p>
+    </footer>    
+    
+</body>
+</html>

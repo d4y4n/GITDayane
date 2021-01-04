@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Negocio DG</title>
+    <link rel="stylesheet" href="estilonegocio.css">
+    <link href= 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css' rel='stylesheet'> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
+
+    
+    
+    <script>
+        $( function() {
+          $( "#menu" ).menu();
+        } );
+        </script>
+        <style>
+        .ui-menu { width: 150px; }
+        </style> 
+</head>
+<body>
+    <header>
+        <a href="/">
+            <img src="https://nebula.wsimg.com/a980a5dd3ffb0c7ed107fd2d1d1eaa31?AccessKeyId=D90C5C6C41EA845BB39D&disposition=0&alloworigin=1" alt="Celulares">
+        </a>
+        <nav>
+            <a href="negocio.html#quienes-somos">Quienes Somos</a>
+            <a href="negocio.html#donde-estamos">Donde Estamos</a>
+            <a href="negocio.html#servicios">Servicios</a>
+            <a href="negocio.html#referencias">Referencias</a>
+            <a href="ingreso.html">Ingreso</a>
+            <a href="agregarcliente.html">Agregar Cliente</a>
+            <a href="agregarventa.html">Agregar Venta</a>
+            <a href="listarventas.html">Agregar Venta</a>
+        </nav>
+    </header>
+    <ul id="menu">
+        <li><div>Inicio</div>
+            <ul>
+                <li><div><a href="ingreso.html">Ingreso</a></div></li>
+                <li><div><a href="negocio.html">Inicio</a></div></li>
+            </ul>
+        </li>
+        <li><div>Clientes</div>
+            <ul>
+                <li><div><a href="agregarcliente.html">Agregar Cliente</a></div></li>
+            </ul>
+        </li>
+        <li><div>Ventas</div>
+            <ul>
+                <li><div><a href="agregarventa.html">Agregar Venta</a></div></li>
+                <li><div><a href="agregardetalleventa.html">Agregar Detalle Venta</a></div></li>
+                <li><div><a href="listarventas.html">Listar Venta</a></div></li>
+                <li><div><a href="crearfactura.html">Crear Factura</a></div></li>
+            </ul>
+        </li>
+        <li><div>Productos</div>
+            <ul>
+                <li><div><a href="crearproducto.html">Crear Producto</a></div></li>
+                <li><div><a href="listadocategorias.html">Listado Categorias</a></div></li>
+            </ul>
+        </li> 
+      </ul>
+    <section id="quienes-somos">
+
+        <h1>Agregar Ventas</h1>
+        <hr>
+
+        <img src="https://blogs.vmware.com/latam/files/2018/03/Celulares.jpg" alt="Quienes Somos">
+        
+        <h3>Llena el formulario de Ventas</h3>
+        <br>
+        <br>
+        <div id="info"></div>
+        <br>
+        <form name="miForm" action="" onsubmit="return validarFormulario();" method="POST">
+            <fieldset>
+                <legend>Información de la Venta</legend>
+                <label for="id">Id Venta: </label>
+                <input type="number" id="id" name="idventa" placeholder="Identificador de la venta">
+                <br><br>
+                <label for="nombre">Nombre Vendedor: </label>
+                <input type="text" id="nombre" name="nombre_vendedor" placeholder="Nombre Vendedor">
+                <br><br>
+                <label for="art">Cantidad Articulos: </label>
+                <input type="number" id="art" name="articulos" placeholder="C/U Articulos">
+                <br><br>
+                <input type="submit" value="Ingresar">
+                <br><br>
+                <input type="button" value="Limpiar" onclick="limpiar()">
+            </fieldset>
+        </form>
+    
+    </section>
+    <br>
+    <footer>
+        <nav>
+            <a href="negocio.html#quienes-somos">Quienes Somos</a>
+            <a href="negocio.html#donde-estamos">Donde Estamos</a>
+            <a href="negocio.html#servicios">Servicios</a>
+            <a href="negocio.html#referencias">Referencias</a>
+            <a href="ingreso.html">Ingreso</a>
+            <a href="agregarcliente.html">Agregar Cliente</a>
+        </nav>
+        <p class="copyright">Todos los derechos reservados 2020 TIENDA DG &copy;</p>
+    </footer>    
+    
+
+    <script type="text/javascript">
+        function validarFormulario()
+        {
+            var texto;
+            var idventa = document.forms["miForm"]["idventa"].value;
+            var nombre_vendedor = document.forms["miForm"]["nombre_vendedor"].value;
+            var articulos = document.forms["miForm"]["articulos"].value;
+            
+    
+            if (idventa == "" || nombre_vendedor == "" || articulos == "")
+            {
+                texto = "<span style = 'color:red;'>Todos Los Campos Son Obligatorios</span>";
+                document.getElementById("info").innerHTML = texto;
+                return false;
+            }
+    
+            if (idventa <= 0 || idventa > 1000)
+            {
+                texto = "<span style = 'color:red;'>El Identificador debe ser mayor que 0 y menor o igual a 1000</span>";
+                document.getElementById("info").innerHTML = texto;
+                return false;
+            }
+    
+            var numeroCaracteres = nombre_vendedor.length;
+
+            
+            if(numeroCaracteres > 50)
+            {
+                texto = "<span style = 'color:red;'>El Nombre no debe superar los 50 caracteres</span>";
+                document.getElementById("info").innerHTML = texto;
+                return false;
+            }
+    
+            if(articulos <=0 || articulos >=1000)
+            {
+                texto = "<span style = 'color:red;'>Los articulos deben ser mayor que 0 y menor que 1000</span>";
+                document.getElementById("info").innerHTML = texto;
+                return false;
+            }
+
+            texto = "<span style = 'color:green;'>Venta Exitosa</span>";
+            document.getElementById("info").innerHTML = texto;
+            return false;
+        
+        }
+
+        function limpiar() {
+            document.getElementById("id").value = "";
+            document.getElementById("nombre").value = "";
+            document.getElementById("art").value = "";
+        }
+        
+    </script>
+</body>
+</html>
