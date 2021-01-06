@@ -1,3 +1,11 @@
+/*
+
+DAYANA GONZALEZ
+Version2
+contiene Validaciones JS
+
+*/
+
 $.validator.addMethod("terminaPor", function(value, element, parametro){
 
 })
