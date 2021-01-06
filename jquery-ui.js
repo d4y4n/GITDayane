@@ -1,7 +1,10 @@
-/*! jQuery UI - v1.12.1 - 2020-12-29
-* http://jqueryui.com
-* Includes: keycode.js, widgets/datepicker.js
-* Copyright jQuery Foundation and other contributors; Licensed MIT */
+/*
+
+DAYANA GONZALEZ
+Version2
+contiene el plugin JQUERY UI
+
+*/
 
 (function( factory ) {
 	if ( typeof define === "function" && define.amd ) {
